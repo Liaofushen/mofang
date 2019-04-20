@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wyy.mofang.dao.UserCourseMapper">
+    <resultMap id="userCourse" type="com.wyy.mofang.entity.UserCourse">
+        <result property="userId" column="user_id"/>
+        <result property="courseId" column="course_id"/>
+    </resultMap>
+
+
+    <select id="getCourseIdByUserId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select course_id
+        from mofang_db.t_user_course
+        where user_id = #{userId}
+    </select>
+
+    <insert id="addStudy" parameterType="com.wyy.mofang.entity.UserCourse">
+        insert into mofang_db.t_user_course(user_id, course_id)
+        values (#{userId},
+                #{courseId})
+    </insert>
+</mapper>

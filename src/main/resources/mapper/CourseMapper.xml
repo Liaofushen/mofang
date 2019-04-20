@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wyy.mofang.dao.CourseMapper">
+    <resultMap id="course" type="com.wyy.mofang.entity.Course">
+        <result property="courseId" column="course_id"/>
+        <result property="courseTitle" column="course_title"/>
+        <result property="courseContent" column="course_content"/>
+        <result property="courseImg" column="course_img"/>
+    </resultMap>
+
+    <select id="getAllCourse" resultMap="course">
+        select *
+        from mofang_db.t_course
+    </select>
+    <select id="getCourseByCourseId" resultMap="course" resultType="java.lang.Integer">
+        select *
+        from mofang_db.t_course
+        where course_id=#{courseId}
+    </select>
+
+</mapper>

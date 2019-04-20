@@ -1,0 +1,30 @@
+server:
+  port: 5260
+  tomcat:
+    uri-encoding: UTF-8
+
+
+spring:
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://liaofushen.xyz:3306?useUnicode=true&characterEncoding=UTF-8
+      username: remote
+      password: 560@lfs
+  mvc:
+    favicon:
+      enabled: false
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+
+
+
+mybatis:
+  type-aliases-package: com.wyy.mofang.entity
+  mapper-locations: classpath:mapper/*.xml
+

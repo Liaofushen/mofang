@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wyy.mofang.dao.UserMapper">
+    <resultMap id="user" type="com.wyy.mofang.entity.User">
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPass" column="user_pass"/>
+        <result property="userSex" column="user_sex"/>
+        <result property="userTime" column="user_time"/>
+    </resultMap>
+    <select id="getUserByUserName" resultMap="user" parameterType="java.lang.String">
+        select *
+        from mofang_db.t_user
+        where user_name = #{userName}
+    </select>
+    <select id="getUserByUserId" resultMap="user" parameterType="java.lang.Integer">
+        select *
+        from mofang_db.t_user
+        where user_id = #{userId}
+    </select>
+    <select id="getAllUser" resultMap="user">
+        select *
+        from mofang_db.t_user
+    </select>
+
+    <insert id="addUser" parameterType="com.wyy.mofang.entity.User">
+        insert into
+            mofang_db.t_user (user_name, user_pass, user_sex, user_time)
+        values (#{userName}, #{userPass}, #{userSex}, now())
+    </insert>
+</mapper>
