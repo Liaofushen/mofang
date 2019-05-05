@@ -1,5 +1,5 @@
 <%@ page import="com.wyy.mofang.entity.Course" %>
-<%@ page import="java.util.List" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: liaofushen
   Date: 2019/3/15
@@ -51,14 +51,25 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h2 class="h2 panel-title">步骤：<%=i+1%> &nbsp;</h2>
+                            <h2 class="h2 panel-title">步骤：<%=i + 1%> &nbsp;</h2>
                         </div>
                         <div class="panel-body">
                             <p>
                                 <%=courseContent[i]%>
                             </p>
                             <p>
-                                <img src="<%=courseImg[i]%>" class="img-responsive" alt="Cinque Terre">
+
+                                <c:if test='<%=!courseImg[i].contains(".mp4")%>'>
+                                    <img src="<%=courseImg[i]%>" class="img-responsive" alt="Cinque Terre">
+
+                                </c:if>
+                                <c:if test='<%=courseImg[i].contains(".mp4")%>'>
+                                    <video class="img-responsive" alt="Cinque Terre" controls>
+                                        <source src="<%=courseImg[i]%>" type="video/mp4">
+                                        您的浏览器不支持 video 标签。
+                                    </video>
+                                </c:if>
+
 
                             </p>
                         </div>
@@ -68,19 +79,19 @@
                     <a href="/course/study/${course.courseId}" class="btn btn-primary btn-lg" role="button">我已学习</a>
 
                     <%--<c:forEach items="${course.courseContent}" var="item">--%>
-                        <%--<p>--%>
-                                <%--${item}--%>
-                        <%--</p>--%>
+                    <%--<p>--%>
+                    <%--${item}--%>
+                    <%--</p>--%>
                     <%--</c:forEach>--%>
                     <%--<c:forEach items="${course.courseImg}" var="item">--%>
-                        <%--<img src="${item}" class="img-responsive" alt="Cinque Terre">--%>
+                    <%--<img src="${item}" class="img-responsive" alt="Cinque Terre">--%>
                     <%--</c:forEach>--%>
 
-            </div>
+                </div>
 
+            </div>
         </div>
     </div>
-</div>
     <%@include file="footer.jsp" %>
 
 </body>

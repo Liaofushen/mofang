@@ -12,7 +12,7 @@ spring:
       enabled: true
   datasource:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://liaofushen.xyz:3306?useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://wuyuying.xyz:3306?useUnicode=true&characterEncoding=UTF-8
       username: remote
       password: 560@lfs
   mvc:
