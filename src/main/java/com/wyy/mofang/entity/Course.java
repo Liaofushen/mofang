@@ -12,7 +12,9 @@ public class Course implements Serializable {
     private Integer courseId;
     private String courseTitle;
     private String courseContent;
+    private String courseContentNaive;
     private String courseImg;
+    private String courseImgNaive;
 
     private boolean learn;
 
@@ -22,5 +24,10 @@ public class Course implements Serializable {
 
     public String[] getCourseImg() {
         return courseImg.split("\\n");
+    }
+
+    public void copy() {
+        courseContentNaive = courseContent;
+        courseImgNaive = courseImg;
     }
 }

@@ -103,7 +103,9 @@ public class CourseController {
 
         course.setCourseImg(imgs);
 
+
         try {
+            course.copy();
             courseMapper.addCourse(course);
         } catch (Exception ex) {
             modelMap.addAttribute("error", ex.getMessage());
@@ -111,7 +113,7 @@ public class CourseController {
 
         }
 
-        return "redirect:/category";
+        return "redirect:/course/category";
     }
 
 /*
