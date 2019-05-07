@@ -1,5 +1,6 @@
 package com.wyy.mofang.controller;
 
+import com.wyy.mofang.common.PicTool;
 import com.wyy.mofang.dao.CourseMapper;
 import com.wyy.mofang.dao.UserCourseMapper;
 import com.wyy.mofang.entity.Course;
@@ -8,10 +9,8 @@ import com.wyy.mofang.entity.UserCourse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -76,5 +75,70 @@ public class CourseController {
         }
     }
 
+    @GetMapping("/add")
+    public String getAddCourse() {
+        return "course-new";
+    }
 
+    @PostMapping("/add")
+    public String postAddCourse(Course course,
+                                ModelMap modelMap,
+                                @RequestParam(value = "img", required = false) List<MultipartFile> multipartFiles) {
+        if (session.getAttribute("admin") == null) {
+            session.setAttribute("back", "/course/add");
+            return "redirect:/user/admin";
+        }
+
+        course.setCourseId(courseMapper.getMaxId());
+        String imgs = "";
+        if (multipartFiles != null) {
+            for (MultipartFile file : multipartFiles) {
+                imgs = imgs + PicTool.save(file) + "\n";
+            }
+        }
+        System.out.println(imgs);
+
+        course.setCourseImg(imgs);
+
+        try {
+            courseMapper.addCourse(course);
+        } catch (Exception ex) {
+            modelMap.addAttribute("error", ex.getMessage());
+            return "/error";
+
+        }
+
+        return "redirect:/category";
+    }
+
+/*
+*         if (session.getAttribute("user") == null) {
+            session.setAttribute("back", "/article/new");
+            return "redirect:/user/login";
+        }
+
+        User user = (User) session.getAttribute("user");
+
+        article.setUser(user);
+        article.setArticleId(articleMapper.getMaxId());
+
+        String imgs = "";
+        if (multipartFiles != null) {
+            for (MultipartFile file : multipartFiles) {
+                imgs = imgs + PicTool.save(file) + "\n";
+            }
+        }
+        System.out.println(imgs);
+
+        article.setArticleImg(imgs);
+
+        try {
+            articleMapper.addArticle(article);
+        } catch (Exception ex) {
+            modelMap.addAttribute("error", ex.getMessage());
+            return "/error";
+
+        }
+        return "redirect:/article/" + article.getArticleId();
+* */
 }

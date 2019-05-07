@@ -42,13 +42,13 @@
                     </div>
                     <img src="/static/img/logo.png">
                     <h2>
-                        登录</h2>
+                        管理员登录</h2>
                     <div class="col-sm-10">
                         &nbsp;
                         &nbsp;
                     </div>
                 </div>
-                <form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/user/login">
+                <form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/user/admin">
                     <div class="form-group">
                         <label for="userName" class="col-sm-2 control-label">账号</label>
                         <div class="col-sm-10">
@@ -63,19 +63,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">请记住我
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default">登录</button>
-                            <a  class="pull-right" href="${pageContext.request.contextPath}/user/register">注册新用户</a>
-                            <br>
-                            <a  class="pull-right" href="${pageContext.request.contextPath}/user/admin">管理员登录</a>
                         </div>
                     </div>
                 </form>
@@ -92,7 +80,6 @@
     </div>
 </div>
 
-
 <div>
     <br>
     <br>
@@ -106,7 +93,12 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
 </div>
+
 <%@include file="footer.jsp" %>
+
 </body>
 </html>

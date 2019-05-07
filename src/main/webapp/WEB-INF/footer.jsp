@@ -2,7 +2,7 @@
 
 
 
-<footer class="nav navbar-default navbar-fixed-bottom" style="padding: 15px 0">
+<footer class="nav navbar-default" style="padding: 15px 0; margin-top: 120px">
     <div class="block-text-center" style="text-align:center">
         毕业设计：爱魔方教程网站 &nbsp;&nbsp;&nbsp;&nbsp; 版权所有：伍钰莹
     </div>

@@ -141,4 +141,32 @@ public class UserController {
         return "rank";
     }
 
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin_login";
+    }
+
+    @PostMapping("/admin")
+    public String admin(User user, ModelMap modelMap) {
+        session.removeAttribute("admin");
+        modelMap.remove("user");
+
+        if (StringUtils.isEmpty(user.getUserName()) || StringUtils.isEmpty(user.getUserPass())) {
+            modelMap.addAttribute("error", "用户名或密码不能为空");
+            return "/error";
+        }
+
+
+        if (!"wyy".equals(user.getUserName()) || !"wyy".equals(user.getUserPass())) {
+            modelMap.addAttribute("error", "用户名或密码错误");
+            return "/error";
+        } else {
+            session.setAttribute("admin", user);
+            modelMap.addAttribute("admin", user);
+
+            return "redirect:/admin";
+        }
+    }
+
 }

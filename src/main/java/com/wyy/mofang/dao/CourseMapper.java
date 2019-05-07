@@ -14,4 +14,8 @@ public interface CourseMapper {
 
     Course getCourseByCourseId(@Param("courseId") Integer courseId);
 
+    void addCourse(Course course);
+
+    Integer getMaxId();
+
 }

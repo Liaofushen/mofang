@@ -19,4 +19,17 @@
         where course_id=#{courseId}
     </select>
 
+    <insert id="addCourse">
+        insert into mofang_db.t_course
+          (course_id, course_title, course_content, course_img)
+        values (#{courseId}, #{courseTitle}, #{courseContent}, #{courseImg}, now())
+
+    </insert>
+
+    <select id="getMaxId" resultType="java.lang.Integer">
+        select max(course_id) + 1
+        from mofang_db.t_course
+    </select>
+
+
 </mapper>
