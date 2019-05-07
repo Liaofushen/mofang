@@ -8,6 +8,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
+
     <name>mofang</name>
     <description>Demo project for Spring Boot</description>
 
@@ -22,6 +23,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <skipTests>true</skipTests>
+
     </properties>
 
     <dependencies>
