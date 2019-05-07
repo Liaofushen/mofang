@@ -28,4 +28,8 @@
         insert into mofang_db.t_article (article_id, article_title, article_keyword, article_content, article_time, user_id, article_img)
         values (#{articleId}, #{articleTitle}, #{articleKeyword}, #{articleContent}, now(), #{user.userId}, #{articleImg})
     </insert>
+    <delete id="deleteArticle"  parameterType="java.lang.Integer">
+        delete 
+        from mofang_db.t_article
+        where article_id = #{articleId}    </delete>
 </mapper>

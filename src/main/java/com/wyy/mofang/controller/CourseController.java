@@ -80,14 +80,17 @@ public class CourseController {
         return "course-new";
     }
 
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        courseMapper.deleteCourse(id);
+        return "redirect:/admin";
+    }
+
     @PostMapping("/add")
     public String postAddCourse(Course course,
                                 ModelMap modelMap,
                                 @RequestParam(value = "img", required = false) List<MultipartFile> multipartFiles) {
-        if (session.getAttribute("admin") == null) {
-            session.setAttribute("back", "/course/add");
-            return "redirect:/user/admin";
-        }
+
 
         course.setCourseId(courseMapper.getMaxId());
         String imgs = "";

@@ -18,11 +18,16 @@
         from mofang_db.t_course
         where course_id=#{courseId}
     </select>
+    <select id="deleteCourse" resultType="java.lang.Integer">
+        delete
+        from mofang_db.t_course
+        where course_id=#{courseId}
+    </select>
 
     <insert id="addCourse">
         insert into mofang_db.t_course
           (course_id, course_title, course_content, course_img)
-        values (#{courseId}, #{courseTitle}, #{courseContent}, #{courseImg}, now())
+        values (#{courseId}, #{courseTitle}, #{courseContent}, #{courseImg})
 
     </insert>
 

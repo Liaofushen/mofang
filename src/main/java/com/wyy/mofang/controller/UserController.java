@@ -149,7 +149,7 @@ public class UserController {
 
     @PostMapping("/admin")
     public String admin(User user, ModelMap modelMap) {
-        session.removeAttribute("admin");
+        session.removeAttribute("user");
         modelMap.remove("user");
 
         if (StringUtils.isEmpty(user.getUserName()) || StringUtils.isEmpty(user.getUserPass())) {
@@ -158,15 +158,18 @@ public class UserController {
         }
 
 
-        if (!"wyy".equals(user.getUserName()) || !"wyy".equals(user.getUserPass())) {
+        User userKey = userMapper.getUserByUserName(user.getUserName());
+        if (userKey == null || !userKey.getUserPass().equals(user.getUserPass())) {
             modelMap.addAttribute("error", "用户名或密码错误");
             return "/error";
         } else {
-            session.setAttribute("admin", user);
-            modelMap.addAttribute("admin", user);
+            session.setAttribute("user", userKey);
+            modelMap.addAttribute("user", userKey);
 
             return "redirect:/admin";
         }
+
+
     }
 
 }

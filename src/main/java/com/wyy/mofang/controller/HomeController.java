@@ -1,8 +1,10 @@
 package com.wyy.mofang.controller;
 
 import com.wyy.mofang.dao.ArticleMapper;
+import com.wyy.mofang.dao.CourseMapper;
 import com.wyy.mofang.dao.UserMapper;
 import com.wyy.mofang.entity.Article;
+import com.wyy.mofang.entity.Course;
 import com.wyy.mofang.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,6 +47,11 @@ public class HomeController {
             a.setUser(userMapper.getUserByUserId(a.getUser().getUserId()));
         }
         modelMap.addAttribute("articleCategory", articleCategory);
+
+        List<Course> category = courseMapper.getAllCourse();
+
+        modelMap.addAttribute("courseCategory", category);
+
         return "admin";
     }
 
@@ -53,5 +60,7 @@ public class HomeController {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private CourseMapper courseMapper;
 
 }

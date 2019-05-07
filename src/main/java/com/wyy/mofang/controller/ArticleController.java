@@ -95,6 +95,11 @@ public class ArticleController {
     public String getAddOne() {
         return "article-new";
     }
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        articleMapper.deleteArticle(id);
+        return "redirect:/admin";
+    }
 
 
     @PostMapping("/comment")

@@ -14,7 +14,6 @@
                             <li><a href="${pageContext.request.contextPath}/course/category">魔方教程</a></li>
                             <li><a href="${pageContext.request.contextPath}/article/category">发帖交流</a></li>
                             <li><a href="${pageContext.request.contextPath}/user/rank">排行榜</a></li>
-
                         </ul>
                         <!--向右对齐-->
                         <ul class="nav navbar-nav navbar-right">

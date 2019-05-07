@@ -15,4 +15,5 @@ public interface ArticleMapper {
     Integer getMaxId();
 
     void addArticle(Article article);
+    void deleteArticle(@Param("articleId") Integer articleId);
 }

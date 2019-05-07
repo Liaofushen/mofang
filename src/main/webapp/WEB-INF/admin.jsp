@@ -27,7 +27,7 @@
                         </ul>
                         <!--向右对齐-->
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="${pageContext.request.contextPath}/user/info">欢迎您，管理员wyy</a></li>
+                            <li><a href="${pageContext.request.contextPath}/user/admin">欢迎您，管理员wyy</a></li>
 
                         </ul>
                         <%--<a class="navbar-text navbar-right" href="${pageContext.request.contextPath}/user/info">--%>
@@ -52,15 +52,11 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <ul class="breadcrumb">
-                <li>
-                    <a href="${pageContext.request.contextPath}/index">主页</a>
-                </li>
-                <li class="active">
-                    管理员页面
-                </li>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
 
-            </ul>
 
 
             <div class="row">&nbsp;</div>
@@ -72,7 +68,13 @@
                         新增教程
                     </a>
                 </li>
-                <li><a href="#ios" data-toggle="tab">管理帖子</a></li>
+                <li>
+                    <a href="#ioa" data-toggle="tab">管理教程</a>
+                </li>
+
+                <li>
+                    <a href="#ios" data-toggle="tab">管理帖子</a>
+                </li>
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="home">
@@ -108,6 +110,40 @@
                         </div>
                     </form>
                 </div>
+                <div class="tab-pane fade" id="ioa">
+                    <table class="table table-striped">
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="${pageContext.request.contextPath}/index">主页</a>
+                            </li>
+                            <li class="active">
+                                教程
+                            </li>
+
+                        </ul>
+                        <thead>
+                        <tr>
+                            <th>教程编号</th>
+                            <th>教程标题</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${courseCategory}" var="item">
+                            <tr>
+                                <td><a href="${pageContext.request.contextPath}/course/${item.courseId}">${item.courseId}</a>
+                                </td>
+                                <td><a href="${pageContext.request.contextPath}/course/${item.courseId}">${item.courseTitle}</a>
+                                </td>
+                                <td>
+                                    <a href="${pageContext.request.contextPath}/course/delete/${item.courseId}">删除
+                                    </a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+
+                </div>
                 <div class="tab-pane fade" id="ios">
 
 
@@ -142,7 +178,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/article/${item.articleId}">删除
+                                    <a href="${pageContext.request.contextPath}/article/delete/${item.articleId}">删除
                                     </a>
                                 </td>
                             </tr>
@@ -157,7 +193,37 @@
         </div>
     </div>
 </div>
-
+<div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
 <%@include file="footer.jsp" %>
 </body>
 </html>

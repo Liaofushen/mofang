@@ -13,6 +13,7 @@ public interface CourseMapper {
     List<Course> getAllCourse();
 
     Course getCourseByCourseId(@Param("courseId") Integer courseId);
+    void deleteCourse(@Param("courseId") Integer courseId);
 
     void addCourse(Course course);
 
