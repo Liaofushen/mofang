@@ -69,11 +69,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#ioa" data-toggle="tab">管理教程</a>
+                    <a href="#ioa" data-toggle="tab">删除教程</a>
                 </li>
 
                 <li>
-                    <a href="#ios" data-toggle="tab">管理帖子</a>
+                    <a href="#ios" data-toggle="tab">删除帖子</a>
                 </li>
             </ul>
             <div id="myTabContent" class="tab-content">
